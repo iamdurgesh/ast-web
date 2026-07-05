@@ -1,0 +1,95 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <!-- Brand + blurb -->
+      <div class="site-footer__brand">
+        <app-logo [height]="46" />
+        <p class="site-footer__blurb">
+          A UK-based digital technology partner helping ambitious businesses build
+          intelligent software, automate operations and grow with confidence.
+        </p>
+        <ul class="site-footer__social" aria-label="Social media">
+          <li>
+            <a href="#" class="social-btn" aria-label="Archersoft on LinkedIn">
+              <app-icon name="linkedin" [size]="20" />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-btn" aria-label="Archersoft on X">
+              <app-icon name="x" [size]="20" />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-btn" aria-label="Archersoft on GitHub">
+              <app-icon name="github" [size]="20" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company links -->
+      <nav class="site-footer__col" aria-label="Company">
+        <h2 class="site-footer__heading">Company</h2>
+        <ul class="site-footer__links">
+          @for (link of companyLinks; track link.label) {
+            <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Services links -->
+      <nav class="site-footer__col" aria-label="Services">
+        <h2 class="site-footer__heading">Services</h2>
+        <ul class="site-footer__links">
+          @for (service of services; track service.slug) {
+            <li>
+              <a routerLink="/services" [fragment]="service.slug">{{ service.navLabel }}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <div class="site-footer__col">
+        <h2 class="site-footer__heading">Get in touch</h2>
+        <ul class="site-footer__contact">
+          <li>
+            <app-icon name="map-pin" [size]="18" />
+            <span>{{ company.addressLine }}</span>
+          </li>
+          <li>
+            <app-icon name="mail" [size]="18" />
+            <a [href]="'mailto:' + company.email">{{ company.email }}</a>
+          </li>
+          <li>
+            <app-icon name="phone" [size]="18" />
+            <a [href]="company.phoneHref">{{ company.phone }}</a>
+          </li>
+          <li>
+            <app-icon name="clock" [size]="18" />
+            <span>{{ company.hours }}</span>
+          </li>
+        </ul>
+        <a routerLink="/contact" class="btn btn--primary site-footer__cta">
+          Book a Free Consultation
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">
+        © {{ year }} {{ company.legalName }}. All rights reserved.
+      </p>
+      <ul class="site-footer__legal">
+        @for (link of legalLinks; track link.label) {
+          <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+        }
+        <li>
+          <button type="button" class="site-footer__cookie-btn" (click)="openCookieSettings()">
+            Cookie Settings
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

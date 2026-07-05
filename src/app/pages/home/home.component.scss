@@ -1,0 +1,245 @@
+@use '../../../styles/tokens' as t;
+
+// --- Overview (static hero content, light) ---
+.overview {
+  scroll-margin-top: 5rem;
+
+  &__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @media (min-width: 992px) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+  }
+
+  &__title {
+    margin-top: 1rem;
+    font-size: clamp(1.6rem, 1.1rem + 2vw, 2.4rem);
+    font-weight: t.$weight-bold;
+    letter-spacing: -0.025em;
+  }
+
+  &__lead {
+    margin-top: 1.1rem;
+    font-size: t.$text-lg;
+    line-height: 1.7;
+    color: t.$color-ink-600;
+  }
+
+  &__points {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  &__point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-weight: t.$weight-medium;
+    color: t.$color-ink-800;
+
+    app-icon {
+      flex: none;
+      color: t.$color-brand-600;
+    }
+  }
+
+  &__link {
+    margin-top: 2rem;
+  }
+
+  &__media img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__stats {
+    list-style: none;
+    margin: 4rem 0 0;
+    padding: 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 1rem;
+    background: linear-gradient(135deg, #0b1120, #1a2a5c);
+    border-radius: t.$radius-2xl;
+    box-shadow: t.$shadow-card;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__stat {
+    text-align: center;
+  }
+
+  &__stat-value {
+    display: block;
+    font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
+    font-weight: t.$weight-bold;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(120deg, #fff, #93b4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__stat-label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+}
+
+// --- Section head with side link ---
+.services__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.services__all {
+  flex: none;
+  align-self: flex-start;
+
+  @media (min-width: 900px) {
+    align-self: flex-end;
+  }
+}
+
+// --- Services / Industries backgrounds ---
+.services {
+  background: t.$color-ink-50;
+}
+
+// --- Why choose us ---
+.why {
+  &__grid {
+    margin-top: 3.5rem;
+  }
+
+  &__item {
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid t.$color-ink-100;
+    border-radius: t.$radius-xl;
+    box-shadow: t.$shadow-soft;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: t.$shadow-card;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1.1rem;
+    color: #fff;
+    background: linear-gradient(135deg, t.$color-brand-600, t.$color-accent-500);
+    border-radius: t.$radius-lg;
+  }
+
+  &__item-title {
+    font-size: t.$text-lg;
+    font-weight: t.$weight-semibold;
+    margin-bottom: 0.5rem;
+  }
+
+  &__item-desc {
+    color: t.$color-ink-600;
+    line-height: 1.6;
+  }
+}
+
+// --- Delivery process (dark) ---
+.process {
+  background: linear-gradient(180deg, #0b1120 0%, #14203f 100%);
+
+  &__steps {
+    list-style: none;
+    margin: 3.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+    counter-reset: step;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__step {
+    position: relative;
+    padding: 1.6rem 1.4rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: t.$radius-xl;
+
+    // connector line on large screens
+    @media (min-width: 1100px) {
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 2.7rem;
+        right: -0.7rem;
+        width: 0.7rem;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+    }
+  }
+
+  &__num {
+    font-size: 0.85rem;
+    font-weight: t.$weight-bold;
+    color: t.$color-accent-400;
+    letter-spacing: 0.05em;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: 0.9rem 0 1rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: t.$radius-lg;
+  }
+
+  &__step-title {
+    font-size: t.$text-lg;
+    font-weight: t.$weight-semibold;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  &__step-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+  }
+}

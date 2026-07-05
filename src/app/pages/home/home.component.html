@@ -1,0 +1,161 @@
+<!-- 1. Video hero banner (dark) -->
+<app-hero-video
+  [title]="heroTitle"
+  [subtitle]="heroSubtitle"
+  [highlights]="heroHighlights"
+/>
+
+<!-- 2. Overview: static hero content (dashboard + stats + intro), light -->
+<section id="overview" class="section overview">
+  <div class="container">
+    <div class="overview__grid">
+      <div class="overview__text" appReveal>
+        <span class="eyebrow">Who we are</span>
+        <h2 class="overview__title">
+          Your UK-based partner for building and scaling digital technology
+        </h2>
+        <p class="overview__lead">
+          We help ambitious organisations turn ideas into dependable software.
+          From first concept to long-term support, Archersoft Technologies brings
+          together engineering, design and strategy to deliver products that are
+          fast, secure and built to grow with you.
+        </p>
+        <ul class="overview__points">
+          @for (point of introPoints; track point) {
+            <li class="overview__point">
+              <app-icon name="check-badge" [size]="22" />
+              <span>{{ point }}</span>
+            </li>
+          }
+        </ul>
+        <a routerLink="/about" class="btn btn--secondary overview__link">
+          More about us
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+      </div>
+
+      <div class="overview__media" appReveal [revealDelay]="120">
+        <img
+          src="images/hero-dashboard.svg"
+          alt="Illustration of a software analytics dashboard built by Archersoft Technologies"
+          width="680"
+          height="560"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <ul class="overview__stats" appReveal [revealDelay]="180">
+      @for (stat of stats; track stat.label) {
+        <li class="overview__stat">
+          <span class="overview__stat-value">{{ stat.value }}</span>
+          <span class="overview__stat-label">{{ stat.label }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 3. Services overview -->
+<section id="services" class="section services">
+  <div class="container">
+    <div class="services__head">
+      <app-section-heading
+        eyebrow="What we do"
+        title="Services built around your business goals"
+        subtitle="A complete set of technology capabilities under one roof — so you can move faster with a partner who understands the whole picture."
+      />
+      <a routerLink="/services" class="btn btn--secondary services__all">
+        View all services
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+    </div>
+
+    <ul class="card-grid card-grid--3">
+      @for (service of services; track service.slug) {
+        <li appReveal [revealDelay]="$index * 60">
+          <app-service-card [service]="service" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 4. Why choose us -->
+<section class="section why">
+  <div class="container">
+    <app-section-heading
+      align="center"
+      eyebrow="Why Archersoft"
+      title="A technology partner you can rely on"
+      subtitle="We combine senior expertise with a genuine commitment to your success. Here is what sets us apart."
+    />
+
+    <ul class="card-grid card-grid--3 why__grid">
+      @for (value of whyChooseUs; track value.title) {
+        <li class="why__item" appReveal [revealDelay]="$index * 50">
+          <span class="why__icon" aria-hidden="true">
+            <app-icon [name]="value.icon" [size]="24" />
+          </span>
+          <h3 class="why__item-title">{{ value.title }}</h3>
+          <p class="why__item-desc">{{ value.description }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 5. Industries -->
+<section class="section industries">
+  <div class="container">
+    <div class="services__head">
+      <app-section-heading
+        eyebrow="Industries"
+        title="Sector experience that makes a difference"
+        subtitle="We adapt our approach to the realities of your industry, from compliance to customer expectations."
+      />
+      <a routerLink="/industries" class="btn btn--secondary services__all">
+        All industries
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+    </div>
+
+    <ul class="card-grid card-grid--3">
+      @for (industry of industries; track industry.slug) {
+        <li appReveal [revealDelay]="$index * 50">
+          <app-industry-card [industry]="industry" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 6. Delivery process -->
+<section class="section process">
+  <div class="container">
+    <app-section-heading
+      align="center"
+      tone="light"
+      eyebrow="How we work"
+      title="A clear, collaborative delivery process"
+      subtitle="Five focused stages that keep projects transparent, low-risk and on track — from first conversation to ongoing support."
+    />
+
+    <ol class="process__steps">
+      @for (step of processSteps; track step.step) {
+        <li class="process__step" appReveal [revealDelay]="$index * 70">
+          <span class="process__num">{{ step.step }}</span>
+          <span class="process__icon" aria-hidden="true">
+            <app-icon [name]="step.icon" [size]="24" />
+          </span>
+          <h3 class="process__step-title">{{ step.title }}</h3>
+          <p class="process__step-desc">{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- 7. Final CTA -->
+<app-contact-cta />

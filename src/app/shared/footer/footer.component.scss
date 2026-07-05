@@ -1,0 +1,162 @@
+@use '../../../styles/tokens' as t;
+
+.site-footer {
+  background: t.$color-ink-50;
+  color: t.$color-ink-600;
+  border-top: 1px solid t.$color-ink-100;
+  padding-block: 4rem 2rem;
+
+  &__top {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid t.$color-ink-200;
+
+    @media (min-width: 640px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+      gap: 3rem;
+    }
+  }
+
+  &__brand {
+    max-width: 22rem;
+  }
+
+  &__blurb {
+    margin-top: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: t.$color-ink-500;
+  }
+
+  &__social {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+
+  &__heading {
+    font-size: 0.8rem;
+    font-weight: t.$weight-semibold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: t.$color-ink-900;
+    margin-bottom: 1.1rem;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+
+    a {
+      font-size: 0.92rem;
+      color: t.$color-ink-600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: t.$color-brand-700;
+      }
+    }
+  }
+
+  &__contact {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      color: t.$color-ink-600;
+    }
+
+    app-icon {
+      flex: none;
+      color: t.$color-brand-600;
+      margin-top: 0.1rem;
+    }
+
+    a:hover {
+      color: t.$color-brand-700;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.75rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__copy {
+    font-size: 0.85rem;
+    color: t.$color-ink-500;
+  }
+
+  &__legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a,
+    .site-footer__cookie-btn {
+      font-size: 0.85rem;
+      color: t.$color-ink-600;
+      background: none;
+      border: 0;
+      padding: 0;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: t.$color-brand-700;
+      }
+    }
+  }
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: t.$color-ink-600;
+  background: #fff;
+  border: 1px solid t.$color-ink-200;
+  border-radius: t.$radius-md;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: t.$color-brand-600;
+    border-color: t.$color-brand-600;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}

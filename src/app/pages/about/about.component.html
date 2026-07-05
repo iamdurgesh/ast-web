@@ -1,0 +1,128 @@
+<app-page-header
+  crumb="About"
+  eyebrow="About Archersoft"
+  title="A UK technology partner built around your success"
+  subtitle="We are a team of engineers, designers and strategists helping ambitious businesses build software that lasts."
+/>
+
+<!-- Overview -->
+<section class="section">
+  <div class="container about-overview">
+    <div class="about-overview__text" appReveal>
+      <span class="eyebrow">Our story</span>
+      <h2 class="about-overview__title">Engineering with purpose, delivered with care</h2>
+      <p>
+        Archersoft Technologies was founded to close the gap between everyday
+        business challenges and the technology that can solve them. Based in the
+        United Kingdom, we partner with organisations that want more than a
+        supplier — they want a dependable team that understands their goals and
+        delivers software they can trust.
+      </p>
+      <p>
+        Across web development, AI and automation, cloud, cybersecurity and data,
+        we bring senior expertise and a genuine commitment to quality. We believe
+        great technology should feel effortless to the people who use it, and
+        sustainable for the teams who maintain it.
+      </p>
+    </div>
+    <div class="about-overview__media" appReveal [revealDelay]="120">
+      <img
+        src="images/about-collaboration.svg"
+        alt="Illustration of the Archersoft Technologies team collaborating"
+        width="640"
+        height="520"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="about-stats">
+  <div class="container">
+    <ul class="about-stats__grid" appReveal>
+      @for (stat of stats; track stat.label) {
+        <li class="about-stats__item">
+          <span class="about-stats__value">{{ stat.value }}</span>
+          <span class="about-stats__label">{{ stat.label }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Mission / Vision / Approach -->
+<section class="section">
+  <div class="container">
+    <app-section-heading
+      align="center"
+      eyebrow="What drives us"
+      title="Mission, vision and approach"
+    />
+    <ul class="card-grid card-grid--3">
+      @for (pillar of pillars; track pillar.title) {
+        <li class="pillar" appReveal [revealDelay]="$index * 60">
+          <span class="pillar__icon" aria-hidden="true">
+            <app-icon [name]="pillar.icon" [size]="24" />
+          </span>
+          <h3 class="pillar__title">{{ pillar.title }}</h3>
+          <p class="pillar__text">{{ pillar.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Core values -->
+<section class="section values">
+  <div class="container">
+    <app-section-heading
+      align="center"
+      eyebrow="Our values"
+      title="The principles behind everything we do"
+      subtitle="These values guide how we work, the decisions we make and the partnerships we build."
+    />
+    <ul class="card-grid card-grid--2 values__grid">
+      @for (value of coreValues; track value.title) {
+        <li class="value" appReveal [revealDelay]="$index * 50">
+          <span class="value__icon" aria-hidden="true">
+            <app-icon [name]="value.icon" [size]="24" />
+          </span>
+          <div>
+            <h3 class="value__title">{{ value.title }}</h3>
+            <p class="value__text">{{ value.description }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Why UK businesses -->
+<section class="section">
+  <div class="container why-uk">
+    <div class="why-uk__text" appReveal>
+      <span class="eyebrow">Why work with us</span>
+      <h2 class="why-uk__title">Why UK businesses choose Archersoft Technologies</h2>
+      <p class="why-uk__lead">
+        Working with a UK-based partner means clear communication, aligned
+        expectations and delivery that respects the standards and regulations
+        your business operates under.
+      </p>
+    </div>
+    <ul class="why-uk__list" appReveal [revealDelay]="120">
+      @for (reason of ukReasons; track reason) {
+        <li class="why-uk__item">
+          <app-icon name="check-badge" [size]="22" />
+          <span>{{ reason }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<app-contact-cta
+  title="Let’s build your next success story"
+  subtitle="Tell us about your goals and we’ll show you how we can help. Book a free, no-obligation consultation today."
+/>

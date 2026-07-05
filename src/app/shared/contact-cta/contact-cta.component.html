@@ -1,0 +1,21 @@
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__card" appReveal>
+      <div class="cta-band__glow" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <span class="eyebrow cta-band__eyebrow">{{ eyebrow() }}</span>
+        <h2 class="cta-band__title">{{ title() }}</h2>
+        <p class="cta-band__subtitle">{{ subtitle() }}</p>
+        <div class="cta-band__actions">
+          <a [routerLink]="primaryLink()" class="btn btn--on-dark cta-band__cta">
+            {{ primaryLabel() }}
+            <app-icon name="arrow-right" [size]="18" />
+          </a>
+          <a [routerLink]="secondaryLink()" class="btn btn--outline-light cta-band__cta">
+            {{ secondaryLabel() }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

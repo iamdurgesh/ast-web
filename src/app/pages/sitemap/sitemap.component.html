@@ -1,0 +1,32 @@
+<app-page-header
+  crumb="Sitemap"
+  title="Sitemap"
+  subtitle="Find your way around the Archersoft Technologies website. Every page, in one place."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="sitemap-grid">
+      @for (group of groups; track group.title) {
+        <nav class="sitemap-group" [attr.aria-label]="group.title">
+          <h2 class="sitemap-group__title">
+            <span class="sitemap-group__icon" aria-hidden="true">
+              <app-icon [name]="group.icon" [size]="20" />
+            </span>
+            {{ group.title }}
+          </h2>
+          <ul class="sitemap-group__list">
+            @for (link of group.links; track link.label) {
+              <li>
+                <a [routerLink]="link.path" [fragment]="link.fragment">
+                  {{ link.label }}
+                  <app-icon name="arrow-up-right" [size]="16" />
+                </a>
+              </li>
+            }
+          </ul>
+        </nav>
+      }
+    </div>
+  </div>
+</section>

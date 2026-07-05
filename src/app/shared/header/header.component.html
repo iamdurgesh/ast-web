@@ -1,0 +1,155 @@
+<header
+  class="site-header"
+  [class.site-header--scrolled]="scrolled()"
+  [class.site-header--dark]="darkTheme()"
+>
+  <div class="container site-header__inner">
+    <a routerLink="/" class="site-header__brand" aria-label="Archersoft Technologies — home">
+      <app-logo [height]="52" [variant]="darkTheme() ? 'light' : 'dark'" [priority]="true" />
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        @for (item of nav; track item.label) {
+          <li
+            class="site-nav__item"
+            [class.site-nav__item--has-children]="item.children?.length"
+            (mouseenter)="item.children?.length && openDropdownFor(item.label)"
+            (mouseleave)="item.children?.length && closeDropdown()"
+          >
+            @if (item.children?.length) {
+              <button
+                type="button"
+                class="site-nav__link site-nav__toggle"
+                [attr.aria-expanded]="openDropdown() === item.label"
+                [attr.aria-controls]="'menu-' + item.label"
+                (click)="toggleDropdown(item.label)"
+              >
+                {{ item.label }}
+                <app-icon name="chevron-down" [size]="16" />
+              </button>
+
+              <div
+                class="site-nav__dropdown"
+                [id]="'menu-' + item.label"
+                [class.site-nav__dropdown--open]="openDropdown() === item.label"
+              >
+                <div class="site-nav__dropdown-grid">
+                  @for (child of item.children; track child.label) {
+                    <a
+                      class="dropdown-link"
+                      [routerLink]="child.path"
+                      [fragment]="child.fragment"
+                    >
+                      <span class="dropdown-link__icon" aria-hidden="true">
+                        <app-icon [name]="child.icon ?? 'arrow-right'" [size]="20" />
+                      </span>
+                      <span class="dropdown-link__text">
+                        <span class="dropdown-link__title">{{ child.label }}</span>
+                        <span class="dropdown-link__desc">{{ child.description }}</span>
+                      </span>
+                    </a>
+                  }
+                </div>
+                <a class="site-nav__dropdown-all" routerLink="/services">
+                  View all services
+                  <app-icon name="arrow-right" [size]="16" />
+                </a>
+              </div>
+            } @else {
+              <a
+                class="site-nav__link"
+                [routerLink]="item.path"
+                routerLinkActive="site-nav__link--active"
+                [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+              >
+                {{ item.label }}
+              </a>
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a routerLink="/contact" class="btn btn--primary site-header__cta">
+        Book a Free Consultation
+      </a>
+      <button
+        type="button"
+        class="site-header__burger"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-controls="mobile-menu"
+        (click)="toggleMobile()"
+      >
+        <span class="sr-only">{{ mobileOpen() ? 'Close menu' : 'Open menu' }}</span>
+        <app-icon [name]="mobileOpen() ? 'close' : 'menu'" [size]="26" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+    [class.mobile-menu--open]="mobileOpen()"
+    [attr.aria-hidden]="!mobileOpen()"
+  >
+    <nav class="container mobile-menu__inner" aria-label="Mobile">
+      <ul class="mobile-menu__list">
+        @for (item of nav; track item.label) {
+          <li class="mobile-menu__item">
+            @if (item.children?.length) {
+              <button
+                type="button"
+                class="mobile-menu__link mobile-menu__toggle"
+                [attr.aria-expanded]="openDropdown() === item.label"
+                (click)="toggleDropdown(item.label)"
+              >
+                {{ item.label }}
+                <app-icon
+                  name="chevron-down"
+                  [size]="18"
+                  [class.is-rotated]="openDropdown() === item.label"
+                />
+              </button>
+              @if (openDropdown() === item.label) {
+                <ul class="mobile-menu__sublist">
+                  @for (child of item.children; track child.label) {
+                    <li>
+                      <a
+                        class="mobile-menu__sublink"
+                        [routerLink]="child.path"
+                        [fragment]="child.fragment"
+                      >
+                        {{ child.label }}
+                      </a>
+                    </li>
+                  }
+                  <li>
+                    <a class="mobile-menu__sublink mobile-menu__sublink--all" routerLink="/services">
+                      View all services
+                    </a>
+                  </li>
+                </ul>
+              }
+            } @else {
+              <a
+                class="mobile-menu__link"
+                [routerLink]="item.path"
+                routerLinkActive="mobile-menu__link--active"
+                [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+              >
+                {{ item.label }}
+              </a>
+            }
+          </li>
+        }
+      </ul>
+      <a routerLink="/contact" class="btn btn--primary mobile-menu__cta">
+        Book a Free Consultation
+      </a>
+    </nav>
+  </div>
+</header>

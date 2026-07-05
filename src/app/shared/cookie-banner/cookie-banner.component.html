@@ -1,0 +1,29 @@
+@if (consent.showBanner()) {
+  <div
+    class="cookie-banner"
+    role="dialog"
+    aria-live="polite"
+    aria-label="Cookie consent"
+    aria-describedby="cookie-banner-desc"
+  >
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__text">
+        <h2 class="cookie-banner__title">We value your privacy</h2>
+        <p id="cookie-banner-desc" class="cookie-banner__desc">
+          We use essential cookies to make this site work. With your consent, we
+          would also like to use optional analytics cookies to understand how the
+          site is used and improve it. You can change your choice at any time. Read
+          our <a routerLink="/cookie-policy" class="cookie-banner__link">Cookie Policy</a>.
+        </p>
+      </div>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--ghost cookie-banner__btn" (click)="consent.reject()">
+          Reject optional
+        </button>
+        <button type="button" class="btn btn--primary cookie-banner__btn" (click)="consent.accept()">
+          Accept all
+        </button>
+      </div>
+    </div>
+  </div>
+}

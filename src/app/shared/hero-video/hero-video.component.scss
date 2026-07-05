@@ -1,0 +1,187 @@
+@use '../../../styles/tokens' as t;
+
+.hero-video {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(92vh, 860px);
+  padding-top: calc(#{t.$header-height} + 2.5rem);
+  padding-bottom: 4rem;
+  overflow: hidden;
+  background: #0b1120;
+  color: #fff;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__clip {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(100deg, rgba(6, 10, 24, 0.92) 0%, rgba(9, 14, 30, 0.72) 45%, rgba(11, 20, 46, 0.55) 100%),
+      linear-gradient(180deg, rgba(8, 12, 26, 0.55) 0%, rgba(8, 12, 26, 0.2) 40%, rgba(8, 12, 26, 0.7) 100%);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  &__content {
+    max-width: 46rem;
+    animation: rise-in 0.7s ease both;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: t.$weight-semibold;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: t.$radius-full;
+    backdrop-filter: blur(6px);
+  }
+
+  &__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: t.$color-accent-400;
+    box-shadow: 0 0 0 4px rgba(33, 205, 238, 0.25);
+  }
+
+  &__title {
+    margin-top: 1.5rem;
+    font-size: clamp(2.4rem, 1.5rem + 4vw, 4.1rem);
+    font-weight: t.$weight-bold;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    color: #fff;
+    max-width: 16ch;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  &__subtitle {
+    margin-top: 1.35rem;
+    font-size: clamp(1.05rem, 0.98rem + 0.55vw, 1.3rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 40rem;
+  }
+
+  &__actions {
+    margin-top: 2.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  &__cta {
+    font-size: 1rem;
+    padding: 0.95rem 1.6rem;
+  }
+
+  &__highlights {
+    list-style: none;
+    margin: 2.1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.75rem;
+  }
+
+  &__highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+
+    app-icon {
+      color: t.$color-accent-400;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 1.6rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__indicator {
+    width: 2rem;
+    height: 0.32rem;
+    padding: 0;
+    border: 0;
+    border-radius: t.$radius-full;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.3s ease, width 0.3s ease;
+
+    &--active {
+      width: 2.75rem;
+      background: #fff;
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    z-index: 2;
+    right: 2rem;
+    bottom: 1.4rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: nudge 2s ease-in-out infinite;
+
+    @media (min-width: 768px) {
+      display: inline-flex;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}

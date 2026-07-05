@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" fill="none" role="img" aria-label="Illustration of a software analytics dashboard">
+  <defs>
+    <linearGradient id="hg-brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b62f4"/>
+      <stop offset="1" stop-color="#2544e0"/>
+    </linearGradient>
+    <linearGradient id="hg-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#21cdee"/>
+      <stop offset="1" stop-color="#06b0d4"/>
+    </linearGradient>
+    <linearGradient id="hg-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b62f4" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#3b62f4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="hg-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#1e2f9e" flood-opacity="0.18"/>
+    </filter>
+    <filter id="hg-shadow-sm" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#1e2f9e" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- soft background blobs -->
+  <circle cx="540" cy="120" r="150" fill="#dbe7ff" opacity="0.7"/>
+  <circle cx="120" cy="440" r="120" fill="#cff9fe" opacity="0.6"/>
+
+  <!-- dotted grid -->
+  <g fill="#93b4ff" opacity="0.45">
+    <circle cx="70" cy="90" r="2.4"/><circle cx="110" cy="90" r="2.4"/><circle cx="150" cy="90" r="2.4"/>
+    <circle cx="70" cy="130" r="2.4"/><circle cx="110" cy="130" r="2.4"/><circle cx="150" cy="130" r="2.4"/>
+    <circle cx="70" cy="170" r="2.4"/><circle cx="110" cy="170" r="2.4"/><circle cx="150" cy="170" r="2.4"/>
+  </g>
+
+  <!-- main dashboard card -->
+  <g filter="url(#hg-shadow)">
+    <rect x="120" y="120" width="420" height="300" rx="22" fill="#ffffff"/>
+  </g>
+  <!-- card header -->
+  <circle cx="150" cy="152" r="5" fill="#ff6b6b"/>
+  <circle cx="170" cy="152" r="5" fill="#ffcf5c"/>
+  <circle cx="190" cy="152" r="5" fill="#4ad991"/>
+  <rect x="430" y="145" width="86" height="16" rx="8" fill="#eef1f6"/>
+
+  <!-- chart area -->
+  <rect x="150" y="184" width="248" height="146" rx="14" fill="#f6f8fb"/>
+  <path d="M164 300 L200 276 L236 288 L272 250 L308 262 L344 224 L380 236" stroke="url(#hg-brand)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M164 300 L200 276 L236 288 L272 250 L308 262 L344 224 L380 236 L380 316 L164 316 Z" fill="url(#hg-area)"/>
+  <circle cx="344" cy="224" r="5.5" fill="#2544e0" stroke="#ffffff" stroke-width="2.5"/>
+
+  <!-- side stats -->
+  <rect x="414" y="184" width="102" height="44" rx="12" fill="#eef4ff"/>
+  <rect x="426" y="196" width="40" height="8" rx="4" fill="#93b4ff"/>
+  <rect x="426" y="210" width="64" height="8" rx="4" fill="#2544e0"/>
+
+  <rect x="414" y="238" width="102" height="44" rx="12" fill="#ecfeff"/>
+  <rect x="426" y="250" width="40" height="8" rx="4" fill="#66e4f9"/>
+  <rect x="426" y="264" width="58" height="8" rx="4" fill="#06b0d4"/>
+
+  <rect x="414" y="292" width="102" height="38" rx="12" fill="#f6f8fb"/>
+  <rect x="426" y="304" width="70" height="7" rx="3.5" fill="#c2ccdb"/>
+  <rect x="426" y="316" width="48" height="7" rx="3.5" fill="#dde3ec"/>
+
+  <!-- bottom bars -->
+  <rect x="150" y="344" width="366" height="56" rx="14" fill="#f6f8fb"/>
+  <rect x="168" y="378" width="16" height="10" rx="3" fill="#3b62f4"/>
+  <rect x="196" y="368" width="16" height="20" rx="3" fill="#3b62f4"/>
+  <rect x="224" y="358" width="16" height="30" rx="3" fill="#2544e0"/>
+  <rect x="252" y="372" width="16" height="16" rx="3" fill="#6088fb"/>
+  <rect x="280" y="362" width="16" height="26" rx="3" fill="#21cdee"/>
+  <rect x="308" y="354" width="16" height="34" rx="3" fill="#06b0d4"/>
+  <rect x="336" y="366" width="16" height="22" rx="3" fill="#3b62f4"/>
+
+  <!-- floating AI node card (top right) -->
+  <g filter="url(#hg-shadow-sm)">
+    <rect x="470" y="70" width="150" height="112" rx="18" fill="#ffffff"/>
+  </g>
+  <g stroke="#93b4ff" stroke-width="2">
+    <line x1="500" y1="150" x2="540" y2="110"/>
+    <line x1="540" y1="110" x2="590" y2="132"/>
+    <line x1="540" y1="110" x2="560" y2="96"/>
+  </g>
+  <circle cx="500" cy="150" r="8" fill="url(#hg-accent)"/>
+  <circle cx="540" cy="110" r="10" fill="url(#hg-brand)"/>
+  <circle cx="590" cy="132" r="7" fill="#21cdee"/>
+  <circle cx="560" cy="96" r="6" fill="#6088fb"/>
+  <rect x="486" y="86" width="44" height="7" rx="3.5" fill="#dde3ec"/>
+
+  <!-- floating stat pill (bottom left) -->
+  <g filter="url(#hg-shadow-sm)">
+    <rect x="70" y="356" width="176" height="86" rx="18" fill="#ffffff"/>
+  </g>
+  <circle cx="104" cy="399" r="20" fill="#eef4ff"/>
+  <path d="M96 399l6 6 10-12" stroke="#2544e0" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="136" y="382" width="86" height="10" rx="5" fill="#2544e0"/>
+  <rect x="136" y="400" width="64" height="8" rx="4" fill="#c2ccdb"/>
+  <rect x="136" y="414" width="76" height="8" rx="4" fill="#dde3ec"/>
+</svg>
