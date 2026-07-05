@@ -1,0 +1,65 @@
+@use '../../../styles/tokens' as t;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid t.$color-ink-100;
+  border-radius: t.$radius-xl;
+  box-shadow: t.$shadow-soft;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: t.$shadow-lift;
+    border-color: t.$color-brand-100;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: 1.25rem;
+    color: t.$color-brand-600;
+    background: t.$color-brand-50;
+    border-radius: t.$radius-lg;
+  }
+
+  &__title {
+    font-size: t.$text-xl;
+    font-weight: t.$weight-semibold;
+    margin-bottom: 0.6rem;
+  }
+
+  &__summary {
+    color: t.$color-ink-600;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    font-weight: t.$weight-semibold;
+    color: t.$color-brand-600;
+
+    app-icon {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover app-icon {
+      transform: translateX(4px);
+    }
+  }
+}

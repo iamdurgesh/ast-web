@@ -1,0 +1,72 @@
+@use '../../../styles/tokens' as t;
+
+.page-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b1120 0%, #141f42 100%);
+  color: #fff;
+  padding-block: calc(#{t.$header-height} + 2.5rem) 3.5rem;
+
+  @media (min-width: 768px) {
+    padding-block: calc(#{t.$header-height} + 3rem) 4.5rem;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__glow {
+    position: absolute;
+    top: -12rem;
+    right: -6rem;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+    background: radial-gradient(circle, rgba(37, 68, 224, 0.65), transparent 70%);
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 52rem;
+  }
+
+  &__crumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.25rem;
+
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  &__crumb-current {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  &__eyebrow {
+    color: t.$color-accent-300;
+    margin-bottom: 0.85rem;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 1.4rem + 3vw, 3.2rem);
+    font-weight: t.$weight-bold;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  &__subtitle {
+    margin-top: 1.1rem;
+    font-size: clamp(1.05rem, 0.98rem + 0.4vw, 1.2rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}

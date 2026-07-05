@@ -1,0 +1,75 @@
+<app-page-header
+  crumb="Services"
+  eyebrow="Our services"
+  title="Technology services that move your business forward"
+  subtitle="From first line of code to long-term support, we deliver the capabilities modern businesses need — all under one roof."
+/>
+
+<!-- Quick jump nav -->
+<nav class="service-nav" aria-label="Jump to a service">
+  <div class="container service-nav__inner">
+    @for (service of services; track service.slug) {
+      <a class="service-nav__chip" [routerLink]="['/services']" [fragment]="service.slug">
+        <app-icon [name]="service.icon" [size]="18" />
+        <span>{{ service.navLabel }}</span>
+      </a>
+    }
+  </div>
+</nav>
+
+<!-- Service detail sections -->
+@for (service of services; track service.slug; let i = $index) {
+  <section
+    class="service-block"
+    [id]="service.slug"
+    [class.service-block--alt]="i % 2 === 1"
+  >
+    <div class="container service-block__grid">
+      <div class="service-block__intro" appReveal>
+        <span class="service-block__icon" aria-hidden="true">
+          <app-icon [name]="service.icon" [size]="30" />
+        </span>
+        <h2 class="service-block__title">{{ service.title }}</h2>
+        <p class="service-block__desc">{{ service.description }}</p>
+        <a routerLink="/contact" class="btn btn--primary service-block__cta">
+          Book a Free Consultation
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+      </div>
+
+      <div class="service-block__details" appReveal [revealDelay]="100">
+        <div class="service-panel">
+          <h3 class="service-panel__title">
+            <app-icon name="target" [size]="20" />
+            Business benefits
+          </h3>
+          <ul class="service-panel__list">
+            @for (benefit of service.benefits; track benefit) {
+              <li>
+                <app-icon name="check" [size]="18" />
+                <span>{{ benefit }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="service-panel">
+          <h3 class="service-panel__title">
+            <app-icon name="layers" [size]="20" />
+            Example use cases
+          </h3>
+          <ul class="service-panel__list service-panel__list--tags">
+            @for (useCase of service.useCases; track useCase) {
+              <li class="service-tag">{{ useCase }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<app-contact-cta
+  title="Not sure which service you need?"
+  subtitle="Tell us about your challenge and we’ll recommend the right approach. Book a free consultation and get honest, expert advice."
+/>

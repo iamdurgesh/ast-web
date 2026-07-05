@@ -1,0 +1,10 @@
+# Cloudflare deployment (Workers static assets).
+# Build first with `npm run build`, then `npx wrangler deploy`.
+name = "archersoft"
+compatibility_date = "2025-06-01"
+
+# Serve the Angular build output as static assets, with SPA fallback so
+# client-side routes resolve to index.html.
+[assets]
+directory = "./dist/archersoft/browser"
+not_found_handling = "single-page-application"

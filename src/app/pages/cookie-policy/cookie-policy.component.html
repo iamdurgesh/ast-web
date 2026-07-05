@@ -1,0 +1,68 @@
+<app-page-header
+  crumb="Cookie Policy"
+  title="Cookie Policy"
+  subtitle="This policy explains how and why we use cookies, and how you can control them."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+      <span class="prose__updated">Last updated: {{ lastUpdated }}</span>
+
+      <h2>What are cookies?</h2>
+      <p>
+        Cookies are small text files placed on your device when you visit a
+        website. They help the site function, remember your preferences and,
+        where you consent, help us understand how the site is used so we can
+        improve it.
+      </p>
+
+      <h2>How we use cookies</h2>
+      <p>We use two categories of cookies:</p>
+      <ul>
+        <li>
+          <strong>Essential cookies</strong> — required for the website to work,
+          including remembering your cookie preferences. These are always active
+          and do not require consent.
+        </li>
+        <li>
+          <strong>Optional analytics cookies</strong> — help us measure how
+          visitors use the site so we can improve the experience. These are only
+          set once you give your consent, and no non-essential cookies load
+          before then.
+        </li>
+      </ul>
+
+      <h2>Managing your preferences</h2>
+      <p>
+        You can change or withdraw your consent at any time. Use the button below
+        to reopen the cookie preferences banner:
+      </p>
+      <p>
+        <button type="button" class="btn btn--secondary" (click)="openCookieSettings()">
+          Manage cookie preferences
+        </button>
+      </p>
+      <p>
+        You can also control cookies through your browser settings. Most browsers
+        allow you to block or delete cookies, though some site features may not
+        work as intended if you do.
+      </p>
+
+      <h2>Third-party cookies</h2>
+      <p>
+        Where we use optional analytics, some cookies may be set by trusted
+        third-party providers. These are only ever loaded after you have given
+        consent. This template does not set any third-party cookies by default.
+      </p>
+
+      <h2>More information</h2>
+      <p>
+        For details on how we handle personal data, please read our
+        <a routerLink="/privacy-policy">Privacy Policy</a>. If you have any
+        questions about our use of cookies, email us at
+        <a [href]="'mailto:' + company.email">{{ company.email }}</a>.
+      </p>
+    </div>
+  </div>
+</section>

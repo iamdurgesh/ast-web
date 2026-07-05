@@ -1,0 +1,40 @@
+<app-page-header
+  crumb="Industries"
+  eyebrow="Industries we serve"
+  title="Technology solutions tailored to your sector"
+  subtitle="Every industry has its own pressures, regulations and customers. We adapt our expertise to fit yours."
+/>
+
+<section class="section">
+  <div class="container">
+    <ul class="card-grid card-grid--3">
+      @for (industry of industries; track industry.slug) {
+        <li appReveal [revealDelay]="$index * 50">
+          <app-industry-card [industry]="industry" [showHighlights]="true" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section sectors-note">
+  <div class="container">
+    <div class="sectors-note__card" appReveal>
+      <app-section-heading
+        align="center"
+        tone="light"
+        eyebrow="Don’t see your sector?"
+        title="We work with organisations of every kind"
+        subtitle="Our approach is built to flex. If your industry isn’t listed, we would still love to hear about your challenge and explore how we can help."
+      />
+      <div class="sectors-note__actions">
+        <a routerLink="/contact" class="btn btn--on-dark">Talk to our team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-contact-cta
+  title="Ready to solve your industry’s challenges?"
+  subtitle="Book a free consultation and we’ll share practical ideas tailored to your sector and goals."
+/>

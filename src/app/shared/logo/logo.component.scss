@@ -1,0 +1,19 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo__img {
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  user-select: none;
+  transition: filter 0.3s ease;
+  // The artwork background is keyed to full transparency, so the logo sits
+  // cleanly on any surface with no visible background.
+
+  // White treatment for dark surfaces (over the video hero).
+  &--white {
+    filter: brightness(0) invert(1);
+  }
+}

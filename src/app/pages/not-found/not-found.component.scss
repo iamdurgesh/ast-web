@@ -1,0 +1,83 @@
+@use '../../../styles/tokens' as t;
+
+.notfound {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 82vh;
+  padding-block: calc(#{t.$header-height} + 5rem) 5rem;
+  background: linear-gradient(180deg, #0b1120 0%, #1a2a5c 100%);
+  color: #fff;
+  text-align: center;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40rem;
+    height: 40rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    background: radial-gradient(circle, rgba(37, 68, 224, 0.6), transparent 70%);
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  &__code {
+    font-size: clamp(4.5rem, 3rem + 8vw, 8rem);
+    font-weight: t.$weight-bold;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(120deg, #fff, #6088fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__title {
+    margin-top: 0.5rem;
+    font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+    color: #fff;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    font-size: t.$text-lg;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &__actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: center;
+  }
+
+  &__sitemap {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: t.$color-accent-300;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

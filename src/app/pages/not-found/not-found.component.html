@@ -1,0 +1,21 @@
+<section class="notfound" data-header-dark>
+  <div class="notfound__bg" aria-hidden="true">
+    <span class="notfound__glow"></span>
+  </div>
+  <div class="container notfound__inner">
+    <p class="notfound__code">404</p>
+    <h1 class="notfound__title">We couldn’t find that page</h1>
+    <p class="notfound__text">
+      The page you’re looking for may have moved or no longer exists. Let’s get
+      you back on track.
+    </p>
+    <div class="notfound__actions">
+      <a routerLink="/" class="btn btn--on-dark">
+        Back to home
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+      <a routerLink="/contact" class="btn btn--outline-light">Contact us</a>
+    </div>
+    <a routerLink="/sitemap" class="notfound__sitemap">Or browse the sitemap</a>
+  </div>
+</section>

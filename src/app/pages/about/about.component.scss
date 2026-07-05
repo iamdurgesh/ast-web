@@ -1,0 +1,203 @@
+@use '../../../styles/tokens' as t;
+
+.about-overview {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  &__title {
+    margin: 1rem 0 1.25rem;
+    font-size: clamp(1.6rem, 1.1rem + 2vw, 2.4rem);
+    letter-spacing: -0.025em;
+  }
+
+  &__text p {
+    margin-bottom: 1rem;
+    color: t.$color-ink-600;
+    line-height: 1.75;
+    font-size: t.$text-lg;
+  }
+
+  &__media img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Stats band
+.about-stats {
+  padding-block: 2rem;
+
+  &__grid {
+    list-style: none;
+    margin: 0;
+    padding: 2.5rem;
+    display: grid;
+    gap: 2rem 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    background: linear-gradient(135deg, #0b1120, #1a2a5c);
+    border-radius: t.$radius-2xl;
+    box-shadow: t.$shadow-card;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__value {
+    display: block;
+    font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
+    font-weight: t.$weight-bold;
+    line-height: 1;
+    background: linear-gradient(120deg, #fff, #93b4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+}
+
+// Pillars
+.pillar {
+  padding: 1.9rem;
+  background: #fff;
+  border: 1px solid t.$color-ink-100;
+  border-radius: t.$radius-xl;
+  box-shadow: t.$shadow-soft;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: t.$shadow-card;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1.1rem;
+    color: t.$color-brand-600;
+    background: t.$color-brand-50;
+    border-radius: t.$radius-lg;
+  }
+
+  &__title {
+    font-size: t.$text-xl;
+    font-weight: t.$weight-semibold;
+    margin-bottom: 0.6rem;
+  }
+
+  &__text {
+    color: t.$color-ink-600;
+    line-height: 1.65;
+  }
+}
+
+// Values
+.values {
+  background: t.$color-ink-50;
+
+  &__grid {
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+}
+
+.value {
+  display: flex;
+  gap: 1.1rem;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid t.$color-ink-100;
+  border-radius: t.$radius-xl;
+  box-shadow: t.$shadow-soft;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
+    background: linear-gradient(135deg, t.$color-brand-600, t.$color-accent-500);
+    border-radius: t.$radius-lg;
+  }
+
+  &__title {
+    font-size: t.$text-lg;
+    font-weight: t.$weight-semibold;
+    margin-bottom: 0.4rem;
+  }
+
+  &__text {
+    color: t.$color-ink-600;
+    line-height: 1.6;
+  }
+}
+
+// Why UK
+.why-uk {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__title {
+    margin: 1rem 0 1.1rem;
+    font-size: clamp(1.6rem, 1.1rem + 2vw, 2.3rem);
+    letter-spacing: -0.025em;
+  }
+
+  &__lead {
+    font-size: t.$text-lg;
+    line-height: 1.7;
+    color: t.$color-ink-600;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1.1rem 1.3rem;
+    background: #fff;
+    border: 1px solid t.$color-ink-100;
+    border-radius: t.$radius-lg;
+    box-shadow: t.$shadow-soft;
+    font-weight: t.$weight-medium;
+    color: t.$color-ink-800;
+
+    app-icon {
+      flex: none;
+      color: t.$color-brand-600;
+      margin-top: 0.05rem;
+    }
+  }
+}

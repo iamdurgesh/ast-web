@@ -1,0 +1,77 @@
+<section class="hero-video" data-header-dark>
+  <!-- Background video carousel -->
+  <div class="hero-video__media" aria-hidden="true">
+    @for (slide of slides(); track slide.src; let i = $index) {
+      <video
+        class="hero-video__clip"
+        [class.hero-video__clip--active]="active() === i"
+        [poster]="slide.poster"
+        autoplay
+        muted
+        loop
+        playsinline
+        [attr.preload]="i === 0 ? 'auto' : 'metadata'"
+        disablepictureinpicture
+        disableremoteplayback
+      >
+        <source [src]="slide.src" type="video/mp4" />
+      </video>
+    }
+    <div class="hero-video__overlay"></div>
+  </div>
+
+  <!-- Foreground content -->
+  <div class="container hero-video__inner">
+    <div class="hero-video__content">
+      <span class="hero-video__eyebrow">
+        <span class="hero-video__dot" aria-hidden="true"></span>
+        {{ eyebrow() }}
+      </span>
+      <h1 class="hero-video__title">{{ title() }}</h1>
+      <p class="hero-video__subtitle">{{ subtitle() }}</p>
+
+      <div class="hero-video__actions">
+        <a [routerLink]="primaryCta().link" class="btn btn--primary hero-video__cta">
+          {{ primaryCta().label }}
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+        <a [routerLink]="secondaryCta().link" class="btn btn--outline-light hero-video__cta">
+          {{ secondaryCta().label }}
+        </a>
+      </div>
+
+      @if (highlights().length) {
+        <ul class="hero-video__highlights">
+          @for (item of highlights(); track item) {
+            <li class="hero-video__highlight">
+              <app-icon name="check" [size]="18" />
+              <span>{{ item }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+
+  <!-- Carousel indicators -->
+  @if (slides().length > 1) {
+    <div class="hero-video__dots" role="tablist" aria-label="Background video">
+      @for (slide of slides(); track slide.src; let i = $index) {
+        <button
+          type="button"
+          class="hero-video__indicator"
+          [class.hero-video__indicator--active]="active() === i"
+          [attr.aria-selected]="active() === i"
+          role="tab"
+          (click)="active.set(i)"
+        >
+          <span class="sr-only">Show background {{ i + 1 }}</span>
+        </button>
+      }
+    </div>
+  }
+
+  <a class="hero-video__scroll" href="#overview" aria-label="Scroll to content">
+    <app-icon name="chevron-down" [size]="22" />
+  </a>
+</section>
