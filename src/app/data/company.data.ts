@@ -10,10 +10,8 @@ export const COMPANY = {
   legalName: 'Archersoft Technologies Ltd',
   tagline: 'Building Intelligent Software for Modern Businesses',
   location: 'United Kingdom',
-  addressLine: 'London, United Kingdom',
-  email: 'contact@archersofttechnologies.co.uk',
-  phone: '+44 (0)20 0000 0000',
-  phoneHref: 'tel:+442000000000',
+  addressLine: 'Edinburgh, United Kingdom',
+  email: 'info@archersofttechnologies.com',
   hours: 'Mon–Fri, 9:00–17:30 GMT',
   foundedYear: 2019
 };
